@@ -1,15 +1,13 @@
 @import '../../../theme1.scss';
 
 #canvas {
-    width: 100%;
-    height: 60vh;
     background-color: $canvas-color;
-    padding: 4px 0px;
+    width: 99.5%;
+    height: 60vh;
     box-sizing: border-box;
+    padding: 4px 0px;
     box-shadow: inset 0 0 12px black;
-    border: 8px solid $box-border-color;
-    border-top: 0;
-    border-bottom: 0;
-    margin: 4px 0;
+    margin-left: 0.5%;
+    margin-top: 4px;
     margin-bottom: -5px;
 }

@@ -5,9 +5,12 @@ section {
     display: flex;
     align-items: flex-end;
     height: 60vh;
-    width: 100%;
-    margin: 4px;
+    width: 99.5%;
+    margin-left: 0.5%;
+    margin-top: 4px;
     margin-bottom: 0px;
+    padding: 4px;
+    box-sizing: border-box;
 }
 
 .container {
@@ -46,8 +49,8 @@ section {
 }
 
 .zeroline-wrapper {
-    position: absolute;
-    width: 100%;
+    // position: absolute;
+    // width: 99.9%;
     display: flex;
     align-items: flex-end;
     height: 60vh;

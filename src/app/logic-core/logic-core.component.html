@@ -12,25 +12,14 @@
     </div>
 </div>
 
-<app-custom-canvas *ngIf="graphicMode===1" 
-[cur1]="currentItem1" [cur2]="currentItem2" [array]="array"
-[max]="arrayMax" [min]="arrayMin" [range]="arrayRange" [len]="arrayLength"
-[animationDuration]="animationDuration"></app-custom-canvas>
+<app-custom-canvas *ngIf="graphicMode===1" [cur1]="currentItem1" [cur2]="currentItem2" [array]="array" [max]="arrayMax"
+[min]="arrayMin" [range]="arrayRange" [len]="arrayLength" [animationDuration]="animationDuration">
+</app-custom-canvas>
 
 <app-canvas *ngIf="graphicMode===2" [cur1]="currentItem1" [cur2]="currentItem2" [array]="array"></app-canvas>
 
-<app-controller 
-(setArrayEmitter)="setArray($event)" 
-(sortStepEmitter)="sortStep()" 
-(autoSortEmitter)="autoSort()" 
-(stopSortEmitter)="stopSort()" 
-(resetSortEmitter)="resetSort()"
-(changeSortTypeEmitter)="changeSortType($event)" 
-(changeStepDelayEmitter)="changeStepDelay($event)" 
-(changeAnimDurEmitter)="changeAnimDur($event)"
-[sortTypes]="sortTypes" 
-[sortType]="sortType" 
-[autoSortToogle]="autoSortToogle"
-[stepDelay]="stepDelay" 
-[animationDuration]="animationDuration"> 
-</app-controller>
+<app-controller (setArrayEmitter)="setArray($event)" (sortStepEmitter)="sortStep()" (autoSortEmitter)="autoSort()"
+    (stopSortEmitter)="stopSort()" (resetSortEmitter)="resetSort()" (changeSortTypeEmitter)="changeSortType($event)"
+    (changeStepDelayEmitter)="changeStepDelay($event)" (changeAnimDurEmitter)="changeAnimDur($event)"
+    [sortTypes]="sortTypes" [sortType]="sortType" [autoSortToogle]="autoSortToogle" [stepDelay]="stepDelay"
+    [animationDuration]="animationDuration"></app-controller>

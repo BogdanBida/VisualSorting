@@ -143,6 +143,7 @@ export class LogicCoreComponent implements OnInit {
 
     if (!res) {
       this.toastr.success('Sort is end');
+      this.autoSortToogle = false;
     }
     this.render();
     return res;
@@ -179,28 +180,32 @@ export class LogicCoreComponent implements OnInit {
 
   private selectionSort(n: number) {
     this.steps++;
-    if (this.i == null) {
+    if (this.i == null) { // init sort
       this.i = 0;
       this.currentItem1 = 0;
       this.currentItem2 = 0;
     } else {
       this.currentItem2++;
+
       // when find minimum
-      if (this.array[this.currentItem2] < this.array[this.currentItem1]) {
+      if (this.array[this.currentItem1] > this.array[this.currentItem2]) {
         this.currentItem1 = this.currentItem2;
       }
       // end of iteration
       if (this.currentItem2 == n) {
-        if (this.array[this.currentItem1] < this.array[this.i]) {
-          let t = this.array[this.currentItem1];
-          this.array[this.currentItem1] = this.array[this.i];
-          this.array[this.i] = t;
+        if (this.array[this.i] > this.array[this.currentItem1]) {
+          let t = this.array[this.i];
+          this.array[this.i] = this.array[this.currentItem1];
+          this.array[this.currentItem1] = t;
           this.swapsCount++;
         }
         this.i++;
         this.currentItem2 = this.i;
+        if (this.currentItem1 < this.i)
+        this.currentItem1 = this.i;
       }
-      if (this.i == n - 1) {
+      // end of sort
+      if (this.i == (n - 1)) {
         return false;
       }
     }

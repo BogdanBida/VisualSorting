@@ -6,7 +6,7 @@ body {
     font-family: $font;
     background: $background-color;
     color: $text-main-color;
-    overflow-x: hidden;
+    min-width: 888px;
 }
 
 input {
