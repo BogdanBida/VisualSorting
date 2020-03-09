@@ -1,0 +1,69 @@
+<form (submit)="initArray()" class="flex col centrx">
+  <!-- ---------------------------------------------- SORT CONTROLL LEVEL -->
+  <div class="controll-button-wrapper flex maxw">
+    <div class="flex autosort-wrapper">
+      <div class="tool-box flex">
+        <div class="button icon-button" (click)="resetSort()">
+          <img src="../../../assets/icons/attention.png">
+          <span>RESET SORT</span>
+        </div>
+        <div class="button icon-button" (click)="stopSort()">
+          <img src="../../../assets/icons/stop.png">
+          <span>STOP SORT</span>
+        </div>
+        <div class="button icon-button positive" (click)="autoSort()" *ngIf="!autoSortToogle">
+          <span>AUTO<br>SORT</span>
+        </div>
+        <div class="icon-button disabled" *ngIf="autoSortToogle">
+          <span>AUTO<br>SORT</span>
+        </div>
+      </div>
+    </div>
+    <input type="button" class="sortbutton button" value="SORT STEP" (click)="sortStep()">
+    <div class="sortSettings-wrapper flex centrx">
+      <div class="tool-box flex centrx col">
+        <span>Step Delay {{stepDelayCurrent}} MS</span>
+        <input type="range" min="5" max="1000" step="1" name="stepDelayCurrent" [(ngModel)]="stepDelayCurrent" (change)="changeStepDelay()">
+        <span>Animation Duration {{animationDurationCurrent}} SEC</span>
+        <input type="range" min="0" max="1" step="0.01" name="animationDurationCurrent" [(ngModel)]="animationDurationCurrent" (change)="changeAnimDur()">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- -------------------------------------------- INPUT LEVEL -->
+  <div class="input-wrapper flex maxw">
+    <div class="flex rand-wrapper">
+      <div class="tool-box flex centrx">
+        <img src="../../../assets/icons/settings.png" (click)="showSettings()" class="button">
+        <input type="button" class="button" value="GET RANDOM" (click)="createRandArray()">
+        <div class="arrow-r"></div>
+      </div>
+    </div>
+    <input type="text" class="input" name="input" [(ngModel)]="input" placeholder="Enter array">
+    <input type="submit" value="SHOW" class="button">
+  </div>
+  <hr>
+  <!-- -------------------------------------------- SORT TYPE SELECTOR LEVEL -->
+  <form class="flex maxw selectSortType-container">
+    <span>SELECT SORT TYPE:</span>
+    <div class="radio-button-wrapper flex col centrx" *ngFor="let item of sortTypes">
+      <input type="radio" name="sortType" [value]="item" id="radio-button" [(ngModel)]="newSortType"
+        (change)="changeSortType()">
+      <label for="radio-button">{{item[1]}}</label>
+    </div>
+  </form>
+</form>
+
+<!-- -------------------------------------------------- RANDOM SETTINGS LEVEL -->
+<div *ngIf="settings" class="rand-settings flex">
+  <form (submit)="closeSettings()" class="flex col centrx maxw">
+    <label for="randLength">Array length = <input type="text" name="randLength" [(ngModel)]="randLength"></label>
+    <input type="range" min="{{minRandLength}}" max="{{maxRandLength}}" step="1" name="randLength"
+      [(ngModel)]="randLength">
+    <label for="randRange">Max element = <input type="text" name="randMax" [(ngModel)]="randMax"> </label>
+    <input type="range" min="{{randMin+1}}" max="{{maxRandNumber}}" name="randMax" [(ngModel)]="randMax">
+    <label for="randMin">Min element = <input type="text" name="randMin" [(ngModel)]="randMin"></label>
+    <input type="range" min="{{minRandNumber}}" max="{{randMax-1}}" name="randMin" [(ngModel)]="randMin">
+    <input type="submit" value="OK" class="button">
+  </form>
+</div>

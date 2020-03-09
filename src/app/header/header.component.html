@@ -1,0 +1,19 @@
+<header>
+  <div class="container">
+    <div class="logo">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <span class="header-text container">VISUAL SORTING</span>
+  <div class="right-block container">
+    <span class="link" (click)="openManual()">Manual</span>
+    <app-manual *ngIf="manual" (close)="closeManual()"></app-manual>
+    <span>
+      Creative Task
+    </span>
+  </div>
+</header>

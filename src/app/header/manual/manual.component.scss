@@ -1,0 +1,23 @@
+@import '../../../theme1.scss';
+
+section {
+    background: $background-color;
+    position: absolute;
+    top: 18vh;
+    height: 50vh;
+    width: 33.33%;
+    left: 33.33%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    button {
+        border-radius: 0 !important;
+        height: 40px;
+        padding: 8px;
+    }
+    .content {
+        font-size: 50%;
+        overflow-y: auto;
+        padding: 8px;
+    }
+}

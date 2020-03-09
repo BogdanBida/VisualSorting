@@ -1,0 +1,27 @@
+$background-color: linear-gradient(to bottom right, #354040, #202020);
+$font: Arial;
+
+$header-color: #101818;
+$header-font-color: white;
+$logo-border: skyblue;
+$logo-rect: #70d0a0;
+
+$footer-color: #102020;
+$box-color: #555555;
+$box-border-color: #505060;
+$border-color: #404040;
+
+$canvas-color: #353030;
+$button-color: rgb(62, 80, 108);
+$textbackground-color: #353535;
+$icon-button-color: radial-gradient(circle at center, #604040, #303030);
+$icon-button-color2: radial-gradient(circle at center, #406040, #303030);
+$sort-button-color: $button-color;
+
+$text-main-color: white;
+$text-secondary-color: #e0e0e5;
+$text-mark-color: #a0a0a0;
+
+hr {
+    filter: brightness(0.35);
+}

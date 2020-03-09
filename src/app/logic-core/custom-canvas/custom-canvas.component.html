@@ -1,0 +1,11 @@
+<section>
+  <div class="container" *ngFor="let item of array; let i = index">
+    <div [class.active]="i == cur1" 
+    [class.sub-active]="i == cur2" class="block" 
+    [style.height]="getH(item)" [style.transition]="animationDuration+'s'">
+      <span>
+        {{item}}
+      </span>  
+    </div>
+  </div>
+</section>

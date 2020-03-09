@@ -1,0 +1,36 @@
+<div class="selectGraphicMode">
+    <div class="statistic">
+        <span>ELEMENTS: {{array?.length}}</span>
+        <span>STEPS: {{steps}}</span>
+        <span>SWAPS: {{swapsCount}}</span>
+        <span>IS SORTED: {{isSorted}}</span>
+    </div>
+    <span>DISPLAY TYPE</span>
+    <div class="tool-box">
+        <button (click)="changeGraphicMode(1)" class="icon-button" [class.positive]="graphicMode==1">VECTOR</button>
+        <button (click)="changeGraphicMode(2)" class="icon-button" [class.positive]="graphicMode==2">CANVAS</button>
+    </div>
+</div>
+
+<app-custom-canvas *ngIf="graphicMode===1" 
+[cur1]="currentItem1" [cur2]="currentItem2" [array]="array" 
+[max]="arrayMax" [min]="arrayMin" [range]="arrayRange"
+[animationDuration]="animationDuration"></app-custom-canvas>
+
+<app-canvas *ngIf="graphicMode===2" [cur1]="currentItem1" [cur2]="currentItem2" [array]="array"></app-canvas>
+
+<app-controller 
+(setArrayEmitter)="setArray($event)" 
+(sortStepEmitter)="sortStep()" 
+(autoSortEmitter)="autoSort()" 
+(stopSortEmitter)="stopSort()" 
+(resetSortEmitter)="resetSort()"
+(changeSortTypeEmitter)="changeSortType($event)" 
+(changeStepDelayEmitter)="changeStepDelay($event)" 
+(changeAnimDurEmitter)="changeAnimDur($event)"
+[sortTypes]="sortTypes" 
+[sortType]="sortType" 
+[autoSortToogle]="autoSortToogle"
+[stepDelay]="stepDelay" 
+[animationDuration]="animationDuration"> 
+</app-controller>
