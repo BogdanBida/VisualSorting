@@ -46,6 +46,7 @@ export class ControllerComponent implements OnInit {
   ngOnInit() {
     this.stepDelayCurrent = this.stepDelay;
     this.animationDurationCurrent = this.animationDuration;
+    this.newSortType = this.sortType;
   }
 
   public stopSort() {

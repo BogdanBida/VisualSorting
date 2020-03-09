@@ -31,7 +31,11 @@ section {
     box-sizing: border-box;
     align-items: center;
     span {
-        font-size: 10px;
+        font-size: 11px;
+        font-weight: bold;
+        padding-left: 8px;
+        letter-spacing: 0.25em;
+        transform: rotate(-90deg);
         position: absolute;
     }
 }
@@ -49,8 +53,8 @@ section {
 }
 
 .zeroline-wrapper {
-    // position: absolute;
-    // width: 99.9%;
+    position: absolute;
+    width: 99.0%;
     display: flex;
     align-items: flex-end;
     height: 60vh;

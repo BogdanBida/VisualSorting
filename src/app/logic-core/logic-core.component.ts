@@ -25,7 +25,7 @@ export class LogicCoreComponent implements OnInit {
   public isSorted: boolean = false;
   public autoSortToogle = false;
 
-  public sortTypes = [[0, "Bubble Sort"], [1, "Selection Sort"], [2, "Insertion Sort"]];
+  public sortTypes = [[0, "Bubble Sort"], [1, "Selection Sort"], [2, "Insertion Sort"], [3, "Comb Sort"], [4, "Odd-Even Sort"], [5, "Shell Sort"], [6, "Cocktail Sort"]];
   public sortType = this.sortTypes[0];
   public graphicMode: number = 1;
   public stepDelay = 500;
@@ -214,21 +214,28 @@ export class LogicCoreComponent implements OnInit {
 
   public insertionSort(n: number) {
     this.steps++;
-    if (this.i == null || this.j == null) {
+    if (this.i == null) {
+      // length of sorted array
       this.i = 0;
-      // this.j = this.i+1;
-      this.currentItem2 = this.i;
-      this.currentItem1 = this.i+1;
+      this.currentItem1 = 1;
+      // this.currentItem2 = 0;
     } else {
-      if (this.array[this.currentItem1] < this.array[this.currentItem2]) {
+      if (this.array[this.currentItem1] < this.array[this.currentItem1-1]) {
         let t = this.array[this.currentItem1];
-        this.array[this.currentItem1] = this.array[this.currentItem2];
-        this.array[this.currentItem2] = t;
+        this.array[this.currentItem1] = this.array[this.currentItem1-1];
+        this.array[this.currentItem1-1] = t;
+        this.swapsCount++;
+
         this.currentItem1--;
-        this.currentItem2 = this.currentItem1-1;
+
+        if (this.currentItem1 == 0) {
+          this.i++; 
+          this.currentItem1 = this.i;
+          return true;
+        }
       } else {
         this.i++;
-        this.currentItem1 = this.i+1;
+        this.currentItem1 = this.i;
       }
     }
     return true;

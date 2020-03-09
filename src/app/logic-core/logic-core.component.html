@@ -1,14 +1,11 @@
-<div class="selectGraphicMode">
-    <div class="statistic">
-        <span>ELEMENTS: {{array?.length}}</span>
-        <span>STEPS: {{steps}}</span>
-        <span>SWAPS: {{swapsCount}}</span>
-        <span>IS SORTED: {{isSorted}}</span>
-    </div>
-    <span>DISPLAY TYPE</span>
-    <div class="tool-box">
-        <button (click)="changeGraphicMode(1)" class="icon-button" [class.positive]="graphicMode==1">VECTOR</button>
-        <button (click)="changeGraphicMode(2)" class="icon-button" [class.positive]="graphicMode==2">CANVAS</button>
+<div class="flex maxw centrx">
+    <app-statistic [elements]="arrayLength" [steps]="steps" [swapsCount]="swapsCount" [isSorted]="isSorted"></app-statistic>
+    <div class="selectGraphicMode">
+        <span>DISPLAY TYPE</span>
+        <div class="tool-box">
+            <button (click)="changeGraphicMode(1)" class="icon-button" [class.positive]="graphicMode==1">VECTOR</button>
+            <button (click)="changeGraphicMode(2)" class="icon-button" [class.positive]="graphicMode==2">CANVAS</button>
+        </div>
     </div>
 </div>
 
