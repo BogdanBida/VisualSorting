@@ -14,6 +14,7 @@ export class LogicCoreComponent implements OnInit {
   public arrayMax: number;
   public arrayMin: number;
   public arrayRange: number;
+  public arrayLength: number;
 
   public steps: number = 0;
   public i: number;
@@ -74,10 +75,11 @@ export class LogicCoreComponent implements OnInit {
   }
 
   public setArray(newArray: number[]) {
-    this.array = newArray;
+    this.arrayLength = newArray.length;
     this.arrayMax = Math.max.apply(null, newArray);
     this.arrayMin = Math.min.apply(null, newArray);
     this.arrayRange = Math.abs(this.arrayMax - this.arrayMin);
+    this.array = newArray;
     this.resetSort();
   }
 
@@ -86,12 +88,17 @@ export class LogicCoreComponent implements OnInit {
       if (arr[ii - 1] > arr[ii]) return false;
     }
     this.toastr.info('Array is sorted');
+    this.isSorted = true;
+    this.autoSortToogle = false;
     return true;
   }
 
   public async autoSort() {
     this.autoSortToogle = true;
-    if (!this.autoSortIteration()) {
+    if (this.isSorted) {
+      this.toastr.warning('Array is sorted');
+      this.autoSortToogle = false;
+    } else if (!this.autoSortIteration()) {
       this.toastr.success('Done!');
     }
   }
@@ -114,8 +121,7 @@ export class LogicCoreComponent implements OnInit {
 
     this.render();
     let res: boolean = true;
-    if (this.checkSorted(this.array) && !this.isSorted) {
-      this.isSorted = true;
+    if (this.checkSorted(this.array)) {
       return false;
     }
 
@@ -185,12 +191,14 @@ export class LogicCoreComponent implements OnInit {
       }
       // end of iteration
       if (this.currentItem2 == n) {
-        let t = this.array[this.currentItem1];
-        this.array[this.currentItem1] = this.array[this.i];
-        this.array[this.i] = t;
+        if (this.array[this.currentItem1] < this.array[this.i]) {
+          let t = this.array[this.currentItem1];
+          this.array[this.currentItem1] = this.array[this.i];
+          this.array[this.i] = t;
+          this.swapsCount++;
+        }
         this.i++;
         this.currentItem2 = this.i;
-        this.swapsCount++;
       }
       if (this.i == n - 1) {
         return false;

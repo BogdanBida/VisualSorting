@@ -15,6 +15,7 @@ export class CustomCanvasComponent implements OnInit {
   @Input() max;
   @Input() min;
   @Input() range;
+  @Input() len;
 
 
   constructor() { }
@@ -22,8 +23,14 @@ export class CustomCanvasComponent implements OnInit {
   ngOnInit() {
   }
 
+  public getList() {
+    let arr = []
+    for (let i = 0; i < this.len; i++) arr.push(i);
+    return arr;
+  }
+
   public getH(value: number): string {
-    let height = (value*100)/this.max;
+    let height = (value - this.min) * (100 / (this.range));
     return height + "%";
   }
 

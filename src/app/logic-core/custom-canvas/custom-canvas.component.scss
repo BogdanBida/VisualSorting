@@ -24,9 +24,9 @@ section {
     width: 100%;
     min-height: 4px;
     display: flex;
-    align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    align-items: center;
     span {
         font-size: 10px;
         position: absolute;
@@ -43,4 +43,19 @@ section {
     transition: 0s;
     background-color: #649574;
     box-shadow: 0 0px 5px #649574;
+}
+
+.zeroline-wrapper {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    height: 60vh;
+}
+
+.zeroline {
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px dashed white;
+    opacity: 0.6;
 }

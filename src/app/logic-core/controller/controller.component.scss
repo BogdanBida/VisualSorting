@@ -1,4 +1,5 @@
 @import '../../../flex-template.scss';
+@import '../../../theme1.scss';
 
 .controll-button-wrapper {
     justify-content: start;
@@ -69,13 +70,13 @@
 
 .rand-settings {
     position: absolute;
-    top: 30vh;
+    top: 20vh;
     width: 33.33vw;
     margin-left: 33.33vw;
     z-index: 5;
     height: 50vh;
-    background-color: #202020;
-    box-shadow: 0 32px 1280px rgba(0,0,0,1);
+    background: $background-color;
+    box-shadow: 0 32px 1280px rgba(0,0,0,1), 0 5px 20px black;
     opacity: 0.98;
     color: white;
     form {
