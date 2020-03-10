@@ -23,9 +23,10 @@
     <div class="sortSettings-wrapper flex centrx">
       <div class="tool-box flex centrx col">
         <span>Step Delay {{stepDelayCurrent}} MS</span>
-        <input type="range" min="5" max="1000" step="1" name="stepDelayCurrent" [(ngModel)]="stepDelayCurrent" (change)="changeStepDelay()">
-        <span>Animation Duration {{animationDurationCurrent}} SEC</span>
-        <input type="range" min="0" max="1" step="0.01" name="animationDurationCurrent" [(ngModel)]="animationDurationCurrent" (change)="changeAnimDur()">
+        <input type="range" min="0" max="2000" step="1" name="stepDelayCurrent" [(ngModel)]="stepDelayCurrent" (change)="changeStepDelay()">
+        <span *ngIf="graphicMode===1">Animation Duration {{animationDurationCurrent}} SEC</span>
+        <input *ngIf="graphicMode===1" type="range" min="0" max="1" step="0.01" name="animationDurationCurrent" [(ngModel)]="animationDurationCurrent" (change)="changeAnimDur()">
+        <span *ngIf="graphicMode!==1">Canvas: No animation available</span>
       </div>
     </div>
   </div>
@@ -41,6 +42,7 @@
     </div>
     <input type="text" class="input" name="input" [(ngModel)]="input" placeholder="Enter array">
     <input type="submit" value="SHOW" class="button">
+    <input type="button" value="SHAKE" class="button shake-button" (click)="shakeArray()">
   </div>
   <hr>
   <!-- -------------------------------------------- SORT TYPE SELECTOR LEVEL -->
@@ -57,13 +59,18 @@
 <!-- -------------------------------------------------- RANDOM SETTINGS LEVEL -->
 <div *ngIf="settings" class="rand-settings flex">
   <form (submit)="closeSettings()" class="flex col centrx maxw">
+    <hr>
     <label for="randLength">Array length = <input type="text" name="randLength" [(ngModel)]="randLength"></label>
     <input type="range" min="{{minRandLength}}" max="{{maxRandLength}}" step="1" name="randLength"
       [(ngModel)]="randLength">
+    <hr>
     <label for="randRange">Max element = <input type="text" name="randMax" [(ngModel)]="randMax"> </label>
     <input type="range" min="{{randMin+1}}" max="{{maxRandNumber}}" name="randMax" [(ngModel)]="randMax">
+    <hr>
     <label for="randMin">Min element = <input type="text" name="randMin" [(ngModel)]="randMin"></label>
     <input type="range" min="{{minRandNumber}}" max="{{randMax-1}}" name="randMin" [(ngModel)]="randMin">
+    <hr>
     <input type="submit" value="OK" class="button">
+    <hr>
   </form>
 </div>

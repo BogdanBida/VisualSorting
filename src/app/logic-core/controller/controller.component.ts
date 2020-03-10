@@ -25,15 +25,16 @@ export class ControllerComponent implements OnInit {
   @Input() autoSortToogle;
   @Input() stepDelay;
   @Input() animationDuration;
+  @Input() graphicMode;
 
   public newArray: number[] = [];
   public input:string = "";
 
-  public randLength: number = 8;
+  public randLength: number = 16;
   public randMax: number = 50;
-  public randMin: number = -1;
+  public randMin: number = 0;
 
-  public readonly maxRandLength: number = 100; 
+  public readonly maxRandLength: number = 250; 
   public readonly minRandLength: number = 3; 
   public readonly maxRandNumber: number = 500;
   public readonly minRandNumber: number = -500;
@@ -93,6 +94,31 @@ export class ControllerComponent implements OnInit {
       this.input += Math.round(Math.random()*randRange + this.randMin) + (i<this.randLength-1?',':'');
     } 
     this.initArray(); 
+  }
+
+  public shakeArray() {
+    let temp = this.input.split(',');
+    let replaceArray = [];
+    temp.forEach(element => {
+      if (this.isValid(element)) {
+        replaceArray.push(element);
+      } else {
+        this.toastr.error('Invalid data!','Error');
+        return;
+      }
+    }); 
+    for (let i = replaceArray.length - 1; i >= 1; i--) {
+      let j = Math.round(Math.random()*(i));
+
+      let t = replaceArray[j];
+      replaceArray[j] = replaceArray[i];
+      replaceArray[i] = t;
+    }
+    this.input = '';
+    for (let i = 0; i < replaceArray.length; i++) {
+      this.input += replaceArray[i] + (i<replaceArray.length-1?',':'');
+    } 
+    this.initArray();
   }
 
   public settings = false;

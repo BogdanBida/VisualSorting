@@ -25,11 +25,15 @@ export class LogicCoreComponent implements OnInit {
   public isSorted: boolean = false;
   public autoSortToogle = false;
 
-  public sortTypes = [[0, "Bubble Sort"], [1, "Selection Sort"], [2, "Insertion Sort"], [3, "Comb Sort"], [4, "Odd-Even Sort"], [5, "Shell Sort"], [6, "Cocktail Sort"]];
+  public sortTypes = [[0, "Bubble Sort"],
+  [1, "Selection Sort"],
+  [2, "Insertion Sort"],
+  [3, "Comb Sort"],
+  [4, "Shaker Sort"]];
   public sortType = this.sortTypes[0];
   public graphicMode: number = 1;
-  public stepDelay = 500;
-  public animationDuration = 0.2;
+  public stepDelay = 250;
+  public animationDuration = 0.15;
 
   constructor(private toastr: ToastrService) { }
 
@@ -76,6 +80,10 @@ export class LogicCoreComponent implements OnInit {
 
   public setArray(newArray: number[]) {
     this.arrayLength = newArray.length;
+    if (this.arrayLength == 0) {
+      this.toastr.error('Array length = 0');
+      return;
+    }
     this.arrayMax = Math.max.apply(null, newArray);
     this.arrayMin = Math.min.apply(null, newArray);
     this.arrayRange = Math.abs(this.arrayMax - this.arrayMin);
@@ -136,8 +144,13 @@ export class LogicCoreComponent implements OnInit {
       case 2:
         res = this.insertionSort(n);
         break;
+      case 3:
+        res = this.combSort(n);
+      case 4:
+        res = this.shakerSort(n);
+        break;
       default:
-        alert(this.sortTypes[this.sortType[0]][1] + " in development");
+        alert(this.sortTypes[this.sortType[0]][1] + " unknown sorting");
         return false;
     }
 
@@ -202,7 +215,7 @@ export class LogicCoreComponent implements OnInit {
         this.i++;
         this.currentItem2 = this.i;
         if (this.currentItem1 < this.i)
-        this.currentItem1 = this.i;
+          this.currentItem1 = this.i;
       }
       // end of sort
       if (this.i == (n - 1)) {
@@ -220,16 +233,16 @@ export class LogicCoreComponent implements OnInit {
       this.currentItem1 = 1;
       // this.currentItem2 = 0;
     } else {
-      if (this.array[this.currentItem1] < this.array[this.currentItem1-1]) {
+      if (this.array[this.currentItem1] < this.array[this.currentItem1 - 1]) {
         let t = this.array[this.currentItem1];
-        this.array[this.currentItem1] = this.array[this.currentItem1-1];
-        this.array[this.currentItem1-1] = t;
+        this.array[this.currentItem1] = this.array[this.currentItem1 - 1];
+        this.array[this.currentItem1 - 1] = t;
         this.swapsCount++;
 
         this.currentItem1--;
 
         if (this.currentItem1 == 0) {
-          this.i++; 
+          this.i++;
           this.currentItem1 = this.i;
           return true;
         }
@@ -241,4 +254,80 @@ export class LogicCoreComponent implements OnInit {
     return true;
   }
 
+
+  private gapFactor;
+  public combSort(n: number) {
+    const factor = 1.247;
+    this.steps++;
+    if (this.i == null || this.j == null) {
+      this.i = 0;
+      this.currentItem1 = this.i;
+      this.j = n;
+      this.currentItem2 = this.j;
+      this.gapFactor = n / factor;
+    } else {
+      if (this.gapFactor <= 1) {
+        return false;
+      } else {
+        let gap = Math.round(this.gapFactor);
+
+        if (this.array[this.currentItem1] >= this.array[this.currentItem2]) {
+          let t = this.array[this.currentItem1];
+          this.array[this.currentItem1] = this.array[this.currentItem2];
+          this.array[this.currentItem2] = t;
+          this.swapsCount++;
+        }
+
+        this.currentItem1++;
+        this.currentItem2++;
+        if (this.currentItem2 >= n) {
+          this.gapFactor /= factor;
+        }
+      }
+
+    }
+    return true;
+  }
+
+  public shakerSort(n: number) {
+    this.steps++;
+    if (this.i == null || this.j == null) {
+      this.i = 0;
+      this.j = n - 1;
+      this.currentItem1 = 0;
+      this.currentItem2 = this.j;
+    } else {
+      if (this.i >= this.j) {
+        return false;
+      } else {
+        // left
+        if (this.array[this.currentItem1] > this.array[this.currentItem1 + 1]) {
+          let t = this.array[this.currentItem1];
+          this.array[this.currentItem1] = this.array[this.currentItem1 + 1];
+          this.array[this.currentItem1 + 1] = t;
+          this.swapsCount++;
+        }
+        this.currentItem1++;
+        if (this.currentItem1 >= this.j) {
+          this.j--;
+          this.currentItem1 = this.i;
+          return true;
+        }
+        // right
+        if (this.array[this.currentItem2] < this.array[this.currentItem2 - 1]) {
+          let t = this.array[this.currentItem2];
+          this.array[this.currentItem2] = this.array[this.currentItem2 - 1];
+          this.array[this.currentItem2 - 1] = t;
+          this.swapsCount++;
+        }
+        this.currentItem2--;
+        if (this.currentItem2 <= this.i) {
+          this.i++;
+          this.currentItem2 = this.j;
+          return true;
+        }
+      }
+    }
+    return true;
+  }
 }
