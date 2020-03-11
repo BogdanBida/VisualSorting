@@ -50,7 +50,7 @@ header {
   margin-top: 4px;
   box-sizing: border-box;
   div {
-    width: 5%;
+    width: 25%;
     height: 16px;
     background-color: $logo-rect;
     animation-name: bounce;
@@ -60,25 +60,22 @@ header {
     animation-iteration-count: infinite;
     transition: 1s;
   }
-  &:hover > div {
-    animation-duration: 0.2s;
-  }
 }
 
 .logo > div:nth-last-of-type(1) {
   animation-delay: 0s;
+  border-bottom-right-radius: 70px;
 }
 .logo > div:nth-last-of-type(2) {
   animation-delay: 0.123s;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin-bottom: -1px;
+  border-top: 2px solid $logo-rect;
 }
 .logo > div:nth-last-of-type(3) {
   animation-delay: 1.234s;
-}
-.logo > div:nth-last-of-type(4) {
-  animation-delay: 2.345s;
-}
-.logo > div:nth-last-of-type(5) {
-  animation-delay: 3.456s;
+  border-bottom-left-radius: 70px;
 }
 
 @keyframes bounce {
@@ -86,6 +83,6 @@ header {
     height: 16px;
   }
   to {
-    height: 90%;
+    height: 80%;
   }
 }

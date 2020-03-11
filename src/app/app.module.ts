@@ -14,6 +14,7 @@ import { ControllerComponent } from './logic-core/controller/controller.componen
 import { StatisticComponent } from './logic-core/statistic/statistic.component';
 import { CustomCanvasComponent } from './logic-core/custom-canvas/custom-canvas.component';
 import { ManualComponent } from './header/manual/manual.component';
+import { AboutComponent } from './header/about/about.component';
 
 @NgModule({
    declarations: [
@@ -25,7 +26,8 @@ import { ManualComponent } from './header/manual/manual.component';
       ControllerComponent,
       StatisticComponent,
       CustomCanvasComponent,
-      ManualComponent
+      ManualComponent,
+      AboutComponent
    ],
    imports: [
       BrowserModule,

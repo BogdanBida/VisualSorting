@@ -40,7 +40,7 @@
         <div class="arrow-r"></div>
       </div>
     </div>
-    <input type="text" class="input" name="input" [(ngModel)]="input" placeholder="Enter array">
+    <input type="text" class="input" name="input" [(ngModel)]="input" placeholder="Enter array elements separated by commas using integers">
     <input type="submit" value="SHOW" class="button">
     <input type="button" value="SHAKE" class="button shake-button" (click)="shakeArray()">
   </div>
@@ -65,10 +65,10 @@
       [(ngModel)]="randLength">
     <hr>
     <label for="randRange">Max element = <input type="text" name="randMax" [(ngModel)]="randMax"> </label>
-    <input type="range" min="{{randMin+1}}" max="{{maxRandNumber}}" name="randMax" [(ngModel)]="randMax">
+    <input type="range" min="{{randMin+1}}" max="{{maxRandAbsNumber}}" name="randMax" [(ngModel)]="randMax">
     <hr>
     <label for="randMin">Min element = <input type="text" name="randMin" [(ngModel)]="randMin"></label>
-    <input type="range" min="{{minRandNumber}}" max="{{randMax-1}}" name="randMin" [(ngModel)]="randMin">
+    <input type="range" min="{{-maxRandAbsNumber}}" max="{{randMax-1}}" name="randMin" [(ngModel)]="randMin">
     <hr>
     <input type="submit" value="OK" class="button">
     <hr>

@@ -36,8 +36,7 @@ export class ControllerComponent implements OnInit {
 
   public readonly maxRandLength: number = 250; 
   public readonly minRandLength: number = 3; 
-  public readonly maxRandNumber: number = 500;
-  public readonly minRandNumber: number = -500;
+  public readonly maxRandAbsNumber: number = 500;
 
   public stepDelayCurrent: number;
   public animationDurationCurrent: number;
@@ -69,20 +68,33 @@ export class ControllerComponent implements OnInit {
   public initArray() {
     this.newArray = [];
     let temp = this.input.split(',');
+    if (temp.length > this.maxRandLength) {
+      this.toastr.error("Array size exceeded", "Error")
+      return;
+    }
     temp.forEach(element => {
       if (this.isValid(element)) {
         this.newArray.push(Number(element));
       } else {
-        this.toastr.error('Invalid data!','Error');
-        return;
+        this.input = this.input.replace(',' + element, '');
+        this.input = this.input.replace(element + ',', '');
       }
     }); 
     this.setArrayEmitter.emit(this.newArray);
   }
 
   private isValid(element : string): boolean {
-    let regx = /^(0$|-?[1-9]\d*(\.\d*[1-9]$)?|-?0\.d*[1-9])$/;
-    return regx.test(element);
+    let regx = /^(0$|-?[1-9]\d*|)$/;
+    let res = regx.test(element)
+    if (res) {
+      if (Math.abs(Number(element)) > this.maxRandAbsNumber) {
+        this.toastr.warning(`|${element}| exceeds ${this.maxRandAbsNumber}`, "Invalid value")
+        return false;
+      }
+    } else {
+      this.toastr.warning(`'${element}' is not integer`, "Invalid value")
+    }
+    return res;
   }
 
   public createRandArray() {

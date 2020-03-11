@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   public manual: boolean = false;
+  public about: boolean = false;
 
   constructor() { }
 
@@ -20,6 +21,15 @@ export class HeaderComponent implements OnInit {
 
   public closeManual() {
     this.manual = false;
+  }
+
+  
+  public openAbout() {
+    this.about = true;
+  }
+
+  public closeAbout() {
+    this.about = false;
   }
 
 }

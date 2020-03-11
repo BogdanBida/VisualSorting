@@ -4,16 +4,13 @@
       <div></div>
       <div></div>
       <div></div>
-      <div></div>
-      <div></div>
     </div>
   </div>
   <span class="header-text container">VISUAL SORTING</span>
   <div class="right-block container">
     <span class="link" (click)="openManual()">Manual</span>
     <app-manual *ngIf="manual" (close)="closeManual()"></app-manual>
-    <span>
-      Creative Task
-    </span>
+    <span class="link" (click)="openAbout()">About</span>
+    <app-about *ngIf="about" (close)="closeAbout()"></app-about>
   </div>
 </header>
