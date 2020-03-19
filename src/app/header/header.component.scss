@@ -1,11 +1,11 @@
-@import "../../theme1.scss";
+@import "../../theme.scss";
 
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 4px 16px;
-  background-color: $header-color;
+  background: $header-color;
   color: $header-font-color;
   .header-text {
     letter-spacing: 1vw;

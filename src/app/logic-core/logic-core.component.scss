@@ -1,4 +1,4 @@
-@import "../../theme1.scss";
+@import "../../theme.scss";
 @import '../../flex-template.scss';
 
 app-statistic {
@@ -23,6 +23,10 @@ app-statistic {
   }
   .tool-box {
     margin-bottom: -4px;
+    span {
+      font-size: 100%;
+      font-weight: normal;
+    }
   }
 }
 

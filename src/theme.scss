@@ -1,4 +1,27 @@
-@import 'color-themes/color-theme-1.scss';
+$background-color: linear-gradient(to bottom right, #808080, #404040);
+$font: Verdana;
+
+$header-color: #000;
+$header-font-color: #000;
+$logo-border: #000;
+$logo-rect: #000;
+
+$footer-color: #000;
+$box-color: #000;
+$box-border-color: #000;
+$border-color: #000;
+
+$canvas-color: #000;
+$button-color: #000;
+$textbackground-color: #000;
+$icon-button-color: #000;
+$icon-button-color2: #000;
+$sort-button-color: #000;
+
+$text-main-color: #000;
+$text-secondary-color: #000;
+$text-mark-color: #000;
+$text-gray-color: #000;
 
 hr {
     width: 98%;
@@ -12,10 +35,10 @@ input, *:active, *:focus {
 [type="button"], [type="submit"], button {
     background-color: $button-color;
     border: 0;
-    border-radius: 8px;
     box-shadow: inset 0 -3px 6px rgba(0,0,0,0.5), 0 1px 5px rgba(0,0,0,0.4);
     color: $text-main-color;
     font-size: 80%;
+    font-family: $font;
     color: $text-secondary-color;
 }
 
@@ -27,6 +50,7 @@ input, *:active, *:focus {
     border-bottom: 4px solid $button-color;
     font-family: $font;
     font-size: 55%;
+    padding: 0 14px;
 }
 
 .button {
@@ -43,9 +67,7 @@ input, *:active, *:focus {
 
 .icon-button {
     background: $icon-button-color;
-    border-radius: 4px;
-    border: 2px solid $border-color;
-    box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
+    transition: 0.15s;
     img {
         opacity: 0.6;
     }
@@ -68,7 +90,6 @@ input, *:active, *:focus {
 }
 
 .tool-box {
-    border: 4px solid $box-border-color;
     border-top: 0;
     border-bottom: 0; 
     border-radius: 2px;

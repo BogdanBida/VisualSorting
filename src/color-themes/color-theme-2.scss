@@ -1,27 +1,52 @@
-$background-color: linear-gradient(to bottom right, #354040, #202020);
+$background-color: linear-gradient(to bottom right, #4F4F4F, #242424);
 $font: Arial;
 
-$header-color: #101818;
-$header-font-color: white;
+$header-color: linear-gradient(to bottom right, #434343 ,#272727);
+$header-font-color: #f0f0f0;
 $logo-border: skyblue;
 $logo-rect: #70d0a0;
 
-$footer-color: #102020;
-$box-color: #555555;
-$box-border-color: #505060;
+$footer-color: linear-gradient(to bottom right, #232323 ,#070707);;
 $border-color: #404040;
 
-$canvas-color: #353030;
-$button-color: rgb(62, 80, 108);
+$canvas-color: $header-color;
+$button-color: #b5b5b5;
 $textbackground-color: #353535;
-$icon-button-color: radial-gradient(circle at center, #604040, #303030);
-$icon-button-color2: radial-gradient(circle at center, #406040, #303030);
+$icon-button-color:#272727;
+$icon-button-color2: #272727;
 $sort-button-color: $button-color;
 
-$text-main-color: white;
-$text-secondary-color: #e0e0e5;
-$text-mark-color: #a0a0a0;
+$text-main-color: #e0e0e0;
+$text-secondary-color: #c0c0c5;
+$text-mark-color: #909090;
 
 hr {
     filter: brightness(0.35);
+    opacity: 0.8;
+}
+
+.tool-box {
+    border: 0;
+    box-shadow: none !important;
+}
+
+button, [type="submit"], [type="button"] {
+    border-radius: 2px;
+    box-shadow: none !important;    
+    color: #242424 !important;
+}
+
+[type="text"] {
+    box-shadow: none !important;
+}
+
+.icon-button {
+    border-radius: 0 !important;
+    border: 0 !important;
+    border-bottom: 2px solid #a03030 !important;  
+    color: $text-mark-color !important;
+}
+
+.positive {
+    border-bottom: 2px solid #30a030 !important;
 }

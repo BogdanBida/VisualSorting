@@ -1,7 +1,7 @@
-@import '../../../theme1.scss';
+@import '../../../theme.scss';
 
 #canvas {
-    background-color: $canvas-color;
+    background: $canvas-color;
     width: 99.5%;
     height: 60vh;
     box-sizing: border-box;

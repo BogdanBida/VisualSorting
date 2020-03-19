@@ -1,3 +1,8 @@
 <footer>
   <span>CREATED BY BOGDAN BIDA &copy;</span>
+  <select name="theme" (change)="onChange()" [(ngModel)]="theme">
+    <option value="default">Default</option>
+    <option value="dark">Dark</option>
+    <option value="light">Light</option>
+  </select>
 </footer>

@@ -1,10 +1,10 @@
-@import 'theme1.scss';
+@import 'theme.scss';
 
 body {
     margin: 0;
     font-size: 24px;
     font-family: $font;
-    background: $background-color;
+    // background: $background-color;
     color: $text-main-color;
     min-width: 888px;
 }

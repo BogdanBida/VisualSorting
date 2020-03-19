@@ -1,7 +1,7 @@
-@import '../../../theme1.scss';
+@import '../../../theme.scss';
 
 section {
-    background-color: $canvas-color;
+    background: $canvas-color;
     display: flex;
     align-items: flex-end;
     height: 60vh;
