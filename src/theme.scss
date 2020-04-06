@@ -1,27 +1,29 @@
-$background-color: linear-gradient(to bottom right, #808080, #404040);
-$font: Verdana;
+// $background-color: linear-gradient(to bottom right, #808080, #404040);
+// $font: Verdana;
 
-$header-color: #000;
-$header-font-color: #000;
-$logo-border: #000;
-$logo-rect: #000;
+// $header-color: #000;
+// $header-font-color: #000;
+// $logo-border: #000;
+// $logo-rect: #000;
 
-$footer-color: #000;
-$box-color: #000;
-$box-border-color: #000;
-$border-color: #000;
+// $footer-color: #000;
+// $box-color: #000;
+// $box-border-color: #000;
+// $border-color: #000;
 
-$canvas-color: #000;
-$button-color: #000;
-$textbackground-color: #000;
-$icon-button-color: #000;
-$icon-button-color2: #000;
-$sort-button-color: #000;
+// $canvas-color: #000;
+// $button-color: #000;
+// $textbackground-color: #000;
+// $icon-button-color: #000;
+// $icon-button-color2: #000;
+// $sort-button-color: #000;
 
-$text-main-color: #000;
-$text-secondary-color: #000;
-$text-mark-color: #000;
-$text-gray-color: #000;
+// $text-main-color: #000;
+// $text-secondary-color: #000;
+// $text-mark-color: #000;
+// $text-gray-color: #000;
+
+ @import 'color-themes/color-theme-1.scss';
 
 hr {
     width: 98%;

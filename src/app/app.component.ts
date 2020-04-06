@@ -9,6 +9,6 @@ import { ThemeService } from './services/theme.service';
 export class AppComponent {
   title = 'VisualSorting';
   constructor(private themeServise: ThemeService) {
-    themeServise.applyDefaultTheme();
+    // themeServise.applyDefaultTheme();
   }
 }

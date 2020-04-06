@@ -14,26 +14,25 @@ export class ThemeService {
   styleTag: any;
 
   constructor() {
-    require('../../color-themes/color-theme-1.scss').then(file => {
+    // require('../../color-themes/color-theme-1.scss').then(file => {
       // alert(file);
-      defaultTheme = "body {background-color: red !important; }";
-    })
+    // })
     // requir.import('../../color-themes/color-theme-2.scss').then(file => {
     //   darkTheme = file;
     // })
     // requir.import('../../color-themes/color-theme-3.scss').then(file => {
     //   lightTheme = file;
     // })
-    this._createStyle();
+    // this._createStyle();
   } 
 
-  applyDefaultTheme(){
+  public applyDefaultTheme() {
     this.injectStylesheet(defaultTheme);
   }
-  applyDarkTheme(){
+  public applyDarkTheme(){
     this.injectStylesheet(darkTheme);
   }
-  applyLightTheme(){
+  public applyLightTheme(){
     this.injectStylesheet(lightTheme);
   }
 
